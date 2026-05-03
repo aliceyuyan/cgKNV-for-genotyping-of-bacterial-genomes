@@ -1,38 +1,22 @@
-# cgKNV Workflow for Bacterial Genome Typing
-**A case study using 9 *Bacillus anthracis* genomes**
+# cgKNV (core-genome based k-mer natural vector):
+# A novel core genome clustering method proposed for population structure analysis and genotyping of bacterial genomes
 
-This repository provides a complete, reproducible workflow for applying **cgKNV** (core-genome k-mer natural vector) to bacterial genome typing. The pipeline integrates raw data acquisition, quality control, SNP calling, cgKNV vector computation, and phylogenetic visualization.
+This repository contains a complete, reproducible workflow for cgKNV by applied on 9 B. anthracis genomes (for example), as well as several process documents gotten from 346 *E. faecium*, 583 *B. anthracis*, and 1786 *M. abscessus* shown in the manuscript.  
 
----
+The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* genomes are shown in the directory and sub-directories of anthracis (~/anthracis), except several files that are too big to upload into the repository, in which the information of 9 *B. anthracis* genomes is shown in the file of ~/anthracis/Accession_number_list.xlsx.
 
-## 📂 Project Structure
-Please organize your directories as follows:
-```bash
-/home/alice/data/anthracis/
-├── NC_007530.2.fasta              # Reference genome
-├── Core_gene_positions.txt        # Core gene coordinates
-├── test_single_end/               # Single-end raw data
-├── test_paired_end/               # Paired-end raw data
-├── test_assembled_genome/         # Assembled genomes
-└── test_all_in_trimmomatic/       # Consolidated consensus sequences
+# The workflow of cgKNV contains the following steps:
+⚙️ Step 1. Data acquisition using asap or wget;
 
-⚙️ 1. Raw Data Acquisition
-Prerequisites
-Tools: Aspera Connect (ascp), wget
-Input Lists: Download_single_end_list.txt, Download_paired_end_list1.txt, etc.
-Commands (Unmodified)
-Single-end Sequencing:
-
+1.1 Single-end sequencing data
 ```bash
 cd /home/alice/data/anthracis/test_single_end
-for id in `cat Download_single_end_list.txt`; do \
-  ascp -P 33001 \
+for id in `cat Download_single_end_list.txt`; do ascp -P 33001 
   -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
-
-Paired-end Sequencing:
-
+```
+1.2 Paired-end sequencing data
 ```bash
 cd /home/alice/data/anthracis/test_paired_end
 for id in `cat Download_paired_end_list1.txt`; do \
@@ -40,16 +24,16 @@ for id in `cat Download_paired_end_list1.txt`; do \
   -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
-
-Genome Assembly (NCBI):
-
+```
+1.3 Assembled genome data
 ```bash
 cd /home/alice/data/anthracis/test_genome_assembly
 cat Download_assembly_list.txt | while read ID; do wget $ID; done
+```
 
-🧹 2. Quality Control with Trimmomatic
-Single-end Reads
+🌌 Step 2. Quality-control using Trimmomatic;
 
+2.1 Single-end reads (.fastq.gz)
 ```bash
 cd /home/alice/data/anthracis/test_single_end/
 mkdir trimmomatic
@@ -62,9 +46,8 @@ cat single_list_trim.txt | while read ID; do \
   ILLUMINACLIP:/home/alice/software/trimmomatic-0.39/adapters/TruSeq3-SE.fa:2:30:10 \
   LEADING:3 SLIDINGWINDOW:4:15 TRAILING:3 MINLEN:30; \
 done
-
-Paired-end Reads
-
+```
+2.2 Paired-end reads (.fastq.gz)
 ```bash
 cd /home/alice/data/anthracis/test_paired_end
 mkdir trimmomatic
@@ -80,9 +63,11 @@ cat paired_list_trim.txt | while read ID; do \
   ILLUMINACLIP:/home/alice/software/trimmomatic-0.39/adapters/NexteraPE-PE.fa:2:30:10 \
   LEADING:20 TRAILING:20 MINLEN:30; \
 done
+```
 
-🧬 3. SNP Calling & Standardization
-Single-end Data
+🧬 Step 3. SNP calling and consensus genomes generation using Snippy in the snippy-multi model;
+
+3.1 Single-end-trimmed data
 
 ```bash
 cd /home/alice/data/anthracis/test_single_end/trimmomatic/result
@@ -90,80 +75,75 @@ snippy-multi test_single.txt \
   --ref /home/alice/data/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_single.sh
 sh test_single.sh
-
-Paired-end Data
-
+```
+3.2 Paired-end-trimmed data
 ```bash
 cd /home/alice/data/anthracis/test_paired_end/trimmomatic/result
 snippy-multi test_paired.txt \
   --ref /home/alice/data/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_paired.sh
 sh test_paired.sh
-
-Assembled Genomes
-
+```
+3.3 Assembled genomes
 ```bash
 cd /home/alice/data/anthracis/test_assembled_genome
 # Decompress
 gunzip -d *_genomic.fna.gz
-# Generate list (Note: Adjust substring length if needed)
 ls | grep _genomic.fna > list1
 cat list1 | while read var; do echo ${var:0:15}; done > assembly_list.txt
 paste assembly_list.txt list1 > list2
 mkdir -p update
 cat list2 | while read i j; do echo -e "$i\t/home/alice/data/anthracis/test_assembled_genome/$j" done > ./update/test_assembly.txt
-
-# Run Snippy
 cd /home/alice/data/anthracis/test_assembled_genome/update
 snippy-multi test_assembly.txt \
   --ref /home/alice/data/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_assembly.sh
 sh test_assembly.sh
+```
+🪐 Step 4. Standardizing consensus genomes as in the .fasta file format;
 
-Standardize Consensus Sequences
-
+4.1 Creating directory for consensus genomes
 ```bash
-# 1. Create Consolidated Directory
 cd /home/alice/data/anthracis/
 mkdir -p test_all_in_trimmomatic
-
-# 2. Collect Files (Single-end)
+```
+4.2 Collecting single-end consensus genomes
+```bash
 cd /home/alice/data/anthracis/test_single_end/trimmomatic/result
 for ID in $(cat ../../single_list_trim.txt); do
   cp "$ID/snps.consensus.subs.fa" "/home/alice/data/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
-
-# 3. Collect Files (Paired-end)
+```
+4.3 Collecting paired-end consensus genomes
+```bash
 cd /home/alice/data/anthracis/test_paired_end/trimmomatic/result
 for ID in $(cat ../../paired_list_trim.txt); do
   cp "$ID/snps.consensus.subs.fa" "/home/alice/data/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
-
-# 4. Collect Files (Assembled)
+```
+4.4 Collecting assembled genomes
+```bash
 cd /home/alice/data/anthracis/test_assembled_genome/update
 for ID in $(cat ../assembly_list.txt); do
   cp "$ID/snps.consensus.subs.fa" "/home/alice/data/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
-
-# 5. Standardize Headers
+```
+4.5 Padding >Header to the consensus genomes
+```bash
 cd /home/alice/data/anthracis/test_all_in_trimmomatic
 mkdir -p update
 for i in $(cat Accession_ID_list.txt); do
   echo ">$i" > "update/$i.consensus.subs.fa"
   tail -n +2 "$i.consensus.subs.fa" >> "update/$i.consensus.subs.fa"
 done
+```
+🏋️ Step 5. Bacterial genomes characterized using cgKNV and calculating distances of cgKNVs for bacterial genomes with the Hamming distance measure at ~/anthracis/test_all_in_trimmomatic/update;
 
-🧮 4. cgKNV Vector Calculation (MATLAB)
-Tool: MATLAB (R2025b)
-Copy the standardized consensus files (update/*.consensus.subs.fa) and Core_gene_positions.txt to MATLAB.
-Run the script to extract core genes, determine k-value, and compute KNVs.
-Output: cgKNV_distance_matrix_hamming.meg
+Running cgKNV_analysis.m (for Windows)\
+Running {the complete path of Matlab}/matlab  --nosplash   --nodesktop  cgKNV_analysis (for Linux)\
+Output file: cgKNV_distance_matrix_hamming.meg.
 
-🌲 5. Phylogenetic Analysis
-MEGA11
-Import cgKNV_distance_matrix_hamming.meg.
-Construct a Neighbor-Joining (NJ) Tree.
-Export as cgKNV_NJTree_hamming.nwk.
-iTOL
-Upload the cgKNV_NJTree_hamming.nwk file.
-Customize and export as cgKNV_NJTree_hamming.pdf.
+🌲 Step 6. Clustering results visulization as NJ tree using MEGA/itol.
+
+Input file: cgKNV_distance_matrix_hamming.meg.\
+Output files: NJ tree (cgKNV_NJTree_hamming.pdf) and cgKNV_NJTree_hamming.nwk for visualized with iTOL (if necessary).
