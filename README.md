@@ -146,4 +146,4 @@ Output file: cgKNV_distance_matrix_hamming.meg.
 🌲 Step 6. Clustering results visulization as NJ tree using MEGA/itol.
 
 Input file: cgKNV_distance_matrix_hamming.meg.\
-output files: NJ tree (cgKNV_NJTree_hamming.pdf) and cgKNV_NJTree_hamming.nwk for visualized with iTOL (if necessary)
+Output files: NJ tree (cgKNV_NJTree_hamming.pdf) and cgKNV_NJTree_hamming.nwk for visualized with iTOL (if necessary).
