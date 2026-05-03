@@ -1,7 +1,10 @@
-# cgKNV Workflow for Bacterial Genome Typing
-**A case study using 9 *Bacillus anthracis* genomes**
+# cgKNV (core-genome based k-mer natural vector):
+# A novel core genome clustering method proposed for population structure analysis and genotyping of bacterial genomes.
 
-This repository provides a complete, reproducible workflow for applying **cgKNV** (core-genome k-mer natural vector) to bacterial genome typing. The pipeline integrates raw data acquisition, quality control, SNP calling, cgKNV vector computation, and phylogenetic visualization.
+# This repository mainly introduces a complete, reproducible workflow for cgKNV by taking 9 B. anthracis genomes as an example, which also contains several important process documents and the obtaining results for 346 E. faecium, 583 B. anthracis, and 1786 M. abscessus shown in the manuscript.  
+
+# The workflow for B. anthracis (with reference genome: NC_007530.2.fasta) demonstrates the details of cgKNV pipeline.
+# The complete documents for the workflow of cgKNV applied on 9 B. anthracis genomes are shown in the directory of anthracis (~/anthracis), except several files that are too big to upload into the repository, which includes sequencing data of single_end (ERR1596541, ERR1596542, ERR1596543), paired_end (DRR014735, DRR014736, DRR014737), and assembled genomes (GCA_000007845.1, GCA_000008165.1, GCF_001277955.1), the informaiton of which are shown in the file of ~/anthracis/Accession_number_list.xlsx.
 
 ---
 
