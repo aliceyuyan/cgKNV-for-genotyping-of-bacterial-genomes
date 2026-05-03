@@ -1,0 +1,10 @@
+DateTime	2026-04-22T11:01:20
+ReadFiles	fake_reads.fq
+Reference	/home/alice/data/anthracis/NC_007530.2.fasta
+ReferenceSize	5227419
+Software	snippy 4.6.0
+Variant-COMPLEX	1
+Variant-DEL	8
+Variant-INS	4
+Variant-SNP	14
+VariantTotal	27
