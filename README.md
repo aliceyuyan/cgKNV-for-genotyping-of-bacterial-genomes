@@ -33,7 +33,7 @@ cat Download_assembly_list.txt | while read ID; do wget $ID; done
 
 🌌 Step 2. Quality-control using Trimmomatic;
 
-2.1 Single-end Reads (.fastq.gz)
+2.1 Single-end reads (.fastq.gz)
 ```bash
 cd /home/alice/data/anthracis/test_single_end/
 mkdir trimmomatic
@@ -47,7 +47,7 @@ cat single_list_trim.txt | while read ID; do \
   LEADING:3 SLIDINGWINDOW:4:15 TRAILING:3 MINLEN:30; \
 done
 ```
-2.2 Paired-end Reads (.fastq.gz)
+2.2 Paired-end reads (.fastq.gz)
 ```bash
 cd /home/alice/data/anthracis/test_paired_end
 mkdir trimmomatic
@@ -65,7 +65,7 @@ cat paired_list_trim.txt | while read ID; do \
 done
 ```
 
-🧬 Step 3. SNP Calling and consensus genomes generation using Snippy in the snippy-multi model;
+🧬 Step 3. SNP calling and consensus genomes generation using Snippy in the snippy-multi model;
 
 3.1 Single-end-trimmed data
 
@@ -140,7 +140,7 @@ done
 🏋️ Step 5. Bacterial genomes characterized using cgKNV and calculating distances of cgKNVs for bacterial genomes with the Hamming distance measure at ~/anthracis/test_all_in_trimmomatic/update;
 
 Running cgKNV_analysis.m (for Windows)\
-Running {complete path of Matlab}/matlab  --nosplash   --nodesktop  cgKNV_analysis (for Linux)\
+Running {the complete path of Matlab}/matlab  --nosplash   --nodesktop  cgKNV_analysis (for Linux)\
 Output file: cgKNV_distance_matrix_hamming.meg.
 
 🌲 Step 6. Clustering results visulization as NJ tree using MEGA/itol.
