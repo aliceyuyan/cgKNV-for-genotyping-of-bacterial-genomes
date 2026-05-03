@@ -1,0 +1,15 @@
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/000/SRR14453800/SRR14453800_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/001/SRR14453801/SRR14453801_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/002/SRR14453802/SRR14453802_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/003/SRR14453803/SRR14453803_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/004/SRR14453804/SRR14453804_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/005/SRR14453805/SRR14453805_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/006/SRR14453806/SRR14453806_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/093/SRR14453793/SRR14453793_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/094/SRR14453794/SRR14453794_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/095/SRR14453795/SRR14453795_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/096/SRR14453796/SRR14453796_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/097/SRR14453797/SRR14453797_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/098/SRR14453798/SRR14453798_1.fastq.gz
+fasp.sra.ebi.ac.uk:/vol1/fastq/SRR144/099/SRR14453799/SRR14453799_1.fastq.gz
+
