@@ -1,3 +1,0 @@
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/007/845/GCA_000007845.1_ASM784v1/GCA_000007845.1_ASM784v1_genomic.fna.gz
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/008/165/GCA_000008165.1_ASM816v1/GCA_000008165.1_ASM816v1_genomic.fna.gz
-https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/277/955/GCF_001277955.1_ASM127795v1/GCF_001277955.1_ASM127795v1_genomic.fna.gz

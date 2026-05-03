@@ -1,3 +1,0 @@
-DRR014735	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014735_paired_1.fastq.gz	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014735_paired_2.fastq.gz
-DRR014736	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014736_paired_1.fastq.gz	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014736_paired_2.fastq.gz
-DRR014737	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014737_paired_1.fastq.gz	/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014737_paired_2.fastq.gz

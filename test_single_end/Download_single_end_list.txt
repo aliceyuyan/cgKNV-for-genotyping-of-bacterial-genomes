@@ -1,3 +1,0 @@
-fasp.sra.ebi.ac.uk:/vol1/fastq/ERR159/001/ERR1596541/ERR1596541.fastq.gz
-fasp.sra.ebi.ac.uk:/vol1/fastq/ERR159/002/ERR1596542/ERR1596542.fastq.gz
-fasp.sra.ebi.ac.uk:/vol1/fastq/ERR159/003/ERR1596543/ERR1596543.fastq.gz

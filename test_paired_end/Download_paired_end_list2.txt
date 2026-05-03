@@ -1,3 +1,0 @@
-fasp.sra.ebi.ac.uk:/vol1/fastq/DRR014/DRR014735/DRR014735_2.fastq.gz
-fasp.sra.ebi.ac.uk:/vol1/fastq/DRR014/DRR014736/DRR014736_2.fastq.gz
-fasp.sra.ebi.ac.uk:/vol1/fastq/DRR014/DRR014737/DRR014737_2.fastq.gz

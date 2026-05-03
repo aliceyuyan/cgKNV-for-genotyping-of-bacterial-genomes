@@ -1,3 +1,0 @@
-ERR1596541	/home/alice/data/anthracis/test_single_end/trimmomatic/ERR1596541_single.fastq.gz
-ERR1596542	/home/alice/data/anthracis/test_single_end/trimmomatic/ERR1596542_single.fastq.gz
-ERR1596543	/home/alice/data/anthracis/test_single_end/trimmomatic/ERR1596543_single.fastq.gz

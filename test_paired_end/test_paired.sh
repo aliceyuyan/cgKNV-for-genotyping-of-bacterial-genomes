@@ -1,4 +1,0 @@
-snippy --outdir 'DRR014735' --R1 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014735_paired_1.fastq.gz' --R2 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014735_paired_2.fastq.gz' --ref /home/alice/data/anthracis/NC_007530.2.fasta --cpus 20
-snippy --outdir 'DRR014736' --R1 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014736_paired_1.fastq.gz' --R2 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014736_paired_2.fastq.gz' --ref /home/alice/data/anthracis/NC_007530.2.fasta --cpus 20
-snippy --outdir 'DRR014737' --R1 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014737_paired_1.fastq.gz' --R2 '/home/alice/data/anthracis/test_paired_end/trimmomatic/DRR014737_paired_2.fastq.gz' --ref /home/alice/data/anthracis/NC_007530.2.fasta --cpus 20
-snippy-core --ref 'DRR014735/ref.fa' DRR014735 DRR014736 DRR014737
