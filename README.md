@@ -76,7 +76,7 @@ snippy-multi test_single.txt \
   --cpus 2 > test_single.sh
 sh test_single.sh
 ```
-3.2 Paired-end-trimmed Data
+3.2 Paired-end-trimmed data
 ```bash
 cd /home/alice/data/anthracis/test_paired_end/trimmomatic/result
 snippy-multi test_paired.txt \
@@ -84,7 +84,7 @@ snippy-multi test_paired.txt \
   --cpus 2 > test_paired.sh
 sh test_paired.sh
 ```
-3.3 Assembled Genomes
+3.3 Assembled genomes
 ```bash
 cd /home/alice/data/anthracis/test_assembled_genome
 # Decompress
