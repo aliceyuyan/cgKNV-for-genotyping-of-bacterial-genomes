@@ -1,12 +1,12 @@
 # cgKNV (core-genome based k-mer natural vector):
 # A novel core genome clustering method proposed for population structure analysis and genotyping of bacterial genomes
 
-This repository contains a complete, reproducible workflow for cgKNV by applied on 9 B. anthracis genomes (for example), as well as several process documents gotten from 346 *E. faecium*, 583 *B. anthracis*, and 1786 *M. abscessus* shown in the manuscript.  
+This repository contains a complete, reproducible workflow for cgKNV by applied on 9 *B. anthracis* genomes (for example), as well as several process documents gotten from 346 *E. faecium*, 583 *B. anthracis*, and 1786 *M. abscessus* shown in the manuscript.  
 
 The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* genomes are shown in the directory and sub-directories of anthracis (~/anthracis), except several files that are too big to upload into the repository, in which the information of 9 *B. anthracis* genomes is shown in the file of ~/anthracis/Accession_number_list.xlsx.
 
 # The workflow of cgKNV contains the following steps:
-⚙️ Step 1. Data acquisition using asap or wget;
+⚙️ Step 1. Data acquisition using ascp or wget;
 
 1.1 Single-end sequencing data
 ```bash
