@@ -122,7 +122,7 @@ for ID in $(cat ../../paired_list_trim.txt); do
   cp "$ID/snps.consensus.subs.fa" "/path/to/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
 ```
-4.4 Collecting assembled genomes
+4.4 Collecting assembled consensus genomes
 ```bash
 cd ~/anthracis/test_assembled_genome/update
 for ID in $(cat ../assembly_list.txt); do
@@ -141,7 +141,7 @@ done
 🏋️ Step 5. Bacterial genomes characterized using cgKNV and calculating distances of cgKNVs for bacterial genomes with the Hamming distance measure at ~/anthracis/test_all_in_trimmomatic/update;
 
 Running: cgKNV_analysis.m (for Windows)\
-Running:/path/to/matlab  --nosplash  --nodesktop  cgKNV_analysis (for Linux)\
+Running: /path/to/matlab  --nosplash  --nodesktop  cgKNV_analysis (for Linux)\
 Output file: cgKNV_distance_matrix_hamming.meg.
 
 🌲 Step 6. Clustering results visulization as NJ tree using MEGA/iTOL.
