@@ -72,7 +72,7 @@ done
 
 ```bash
 cd ~/anthracis/test_single_end/trimmomatic/result
-snippy-multi test_single.txt \
+/path/to/snippy-multi test_single.txt \
   --ref ~/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_single.sh
 sh test_single.sh
@@ -80,7 +80,7 @@ sh test_single.sh
 3.2 Paired-end-trimmed data
 ```bash
 cd ~/anthracis/test_paired_end/trimmomatic/result
-snippy-multi test_paired.txt \
+/path/to/snippy-multi test_paired.txt \
   --ref ~/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_paired.sh
 sh test_paired.sh
@@ -96,7 +96,7 @@ paste assembly_list.txt list1 > list2
 mkdir -p update
 cat list2 | while read i j; do echo -e "$i\t/path/to/anthracis/test_assembled_genome/$j" done > ./update/test_assembly.txt
 cd ~/anthracis/test_assembled_genome/update
-snippy-multi test_assembly.txt \
+/path/to/snippy-multi test_assembly.txt \
   --ref ~/anthracis/NC_007530.2.fasta \
   --cpus 2 > test_assembly.sh
 sh test_assembly.sh
@@ -140,8 +140,8 @@ done
 ```
 🏋️ Step 5. Bacterial genomes characterized using cgKNV and calculating distances of cgKNVs for bacterial genomes with the Hamming distance measure at ~/anthracis/test_all_in_trimmomatic/update;
 
-Running cgKNV_analysis.m (for Windows)\
-Running {complete path of Matlab}/matlab  --nosplash   --nodesktop  cgKNV_analysis (for Linux)\
+Running: cgKNV_analysis.m (for Windows)\
+Running:/path/to/matlab  --nosplash  --nodesktop  cgKNV_analysis (for Linux)\
 Output file: cgKNV_distance_matrix_hamming.meg.
 
 🌲 Step 6. Clustering results visulization as NJ tree using MEGA/iTOL.
