@@ -5,7 +5,7 @@ This repository contains a complete, reproducible workflow for cgKNV by applied 
 
 The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* genomes are shown in the directory and sub-directories of anthracis (~/anthracis), except several files that are too big to upload into the repository, in which the information of 9 *B. anthracis* genomes is shown in the file of ~/anthracis/Accession_number_list.xlsx.
 
-[cgKNV_pipline.pdf](https://github.com/user-attachments/files/27333721/cgKNV_pipline.pdf)
+[cgKNV_analysis_pipeline.pdf](https://github.com/user-attachments/files/27337727/cgKNV_analysis_pipeline.pdf)
 
 # The workflow of cgKNV contains the following steps:
 ⚙️ Step 1. Data acquisition using ascp or wget;
