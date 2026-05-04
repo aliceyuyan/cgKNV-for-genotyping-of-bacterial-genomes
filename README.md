@@ -21,7 +21,7 @@ done
 1.2 Paired-end sequencing data
 ```bash
 cd ~/anthracis/test_paired_end
-for id in `cat Download_paired_end_list1.txt`; do path/to/ascp -P 33001 \
+for id in `cat Download_paired_end_list1.txt`; do /path/to/ascp -P 33001 \
   -i /path/to/ascp/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
@@ -39,7 +39,7 @@ cat Download_assembly_list.txt | while read ID; do wget $ID; done
 cd ~/anthracis/test_single_end/
 mkdir trimmomatic
 cat single_list_trim.txt | while read ID; do \
-  trimmomatic SE \
+  /path/to/trimmomatic SE \
   -threads 10 \
   -phred33 \
   $ID".fastq.gz" \
@@ -53,7 +53,7 @@ done
 cd ~/anthracis/test_paired_end
 mkdir trimmomatic
 cat paired_list_trim.txt | while read ID; do \
-  trimmomatic PE \
+  /path/to/trimmomatic PE \
   -threads 10 \
   -phred33 \
   $ID"_1.fastq.gz" $ID"_2.fastq.gz" \
