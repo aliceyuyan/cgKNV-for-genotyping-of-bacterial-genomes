@@ -12,15 +12,15 @@ The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* gen
 
 1.1 Single-end sequencing data
 ```bash
-cd /home/alice/data/anthracis/test_single_end
+cd ~/anthracis/test_single_end
 for id in `cat Download_single_end_list.txt`; do ascp -P 33001 
-  -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh \
+  -i {path of ascp}~/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
 ```
 1.2 Paired-end sequencing data
 ```bash
-cd /home/alice/data/anthracis/test_paired_end
+cd ~/anthracis/test_paired_end
 for id in `cat Download_paired_end_list1.txt`; do \
   ascp -P 33001 \
   -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh \
