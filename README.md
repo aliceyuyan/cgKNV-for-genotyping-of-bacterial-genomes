@@ -7,8 +7,6 @@ The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* gen
 
 <img width="1363" height="403" alt="workflow" src="https://github.com/user-attachments/assets/23a552f7-bb62-4c1c-94dd-803be3744c21" />
 
-[cgKNV_workflow.pdf](https://github.com/user-attachments/files/27355425/cgKNV_workflow.pdf)
-
 # The workflow of cgKNV contains the following steps:
 ⚙️ Step 1. Data acquisition using ascp or wget;
 
