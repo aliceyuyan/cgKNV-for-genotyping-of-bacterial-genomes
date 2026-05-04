@@ -13,17 +13,16 @@ The complete documents for the workflow of cgKNV applied on 9 *B. anthracis* gen
 1.1 Single-end sequencing data
 ```bash
 cd ~/anthracis/test_single_end
-for id in `cat Download_single_end_list.txt`; do ascp -P 33001 
-  -i {path of ascp}/.aspera/connect/etc/asperaweb_id_dsa.openssh \
+for id in `cat Download_single_end_list.txt`; do /path/to/ascp -P 33001 
+  -i /path/to/ascp/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
 ```
 1.2 Paired-end sequencing data
 ```bash
 cd ~/anthracis/test_paired_end
-for id in `cat Download_paired_end_list1.txt`; do \
-  ascp -P 33001 \
-  -i {path of ascp}/.aspera/connect/etc/asperaweb_id_dsa.openssh \
+for id in `cat Download_paired_end_list1.txt`; do path/to/ascp -P 33001 \
+  -i /path/to/ascp/.aspera/connect/etc/asperaweb_id_dsa.openssh \
   -QT -l 500m -k 1 -d "era-fasp@$id" ./ ; \
 done
 ```
@@ -44,8 +43,8 @@ cat single_list_trim.txt | while read ID; do \
   -threads 10 \
   -phred33 \
   $ID".fastq.gz" \
-  "{path of trimmomatic}/"$ID"_single.fastq.gz" \
-  ILLUMINACLIP:{path of trimmomatic}/adapters/TruSeq3-SE.fa:2:30:10 \
+  "./trimmomatic/"$ID"_single.fastq.gz" \
+  ILLUMINACLIP:/path/to/trimmomatic/adapters/TruSeq3-SE.fa:2:30:10 \
   LEADING:3 SLIDINGWINDOW:4:15 TRAILING:3 MINLEN:30; \
 done
 ```
@@ -54,7 +53,7 @@ done
 cd ~/anthracis/test_paired_end
 mkdir trimmomatic
 cat paired_list_trim.txt | while read ID; do \
-  {path of trimmomatic} PE \
+  trimmomatic PE \
   -threads 10 \
   -phred33 \
   $ID"_1.fastq.gz" $ID"_2.fastq.gz" \
@@ -62,7 +61,7 @@ cat paired_list_trim.txt | while read ID; do \
   "./trimmomatic/"$ID"_unpaired_1.fastq.gz" \
   "./trimmomatic/"$ID"_paired_2.fastq.gz" \
   "./trimmomatic/"$ID"_unpaired_2.fastq.gz" \
-  ILLUMINACLIP:{path of trimmomatic}/adapters/NexteraPE-PE.fa:2:30:10 \
+  ILLUMINACLIP:/path/to/trimmomatic/adapters/NexteraPE-PE.fa:2:30:10 \
   LEADING:20 TRAILING:20 MINLEN:30; \
 done
 ```
@@ -95,7 +94,7 @@ ls | grep _genomic.fna > list1
 cat list1 | while read var; do echo ${var:0:15}; done > assembly_list.txt
 paste assembly_list.txt list1 > list2
 mkdir -p update
-cat list2 | while read i j; do echo -e "$i\t{complete path of anthracis}/test_assembled_genome/$j" done > ./update/test_assembly.txt
+cat list2 | while read i j; do echo -e "$i\t/path/to/anthracis/test_assembled_genome/$j" done > ./update/test_assembly.txt
 cd ~/anthracis/test_assembled_genome/update
 snippy-multi test_assembly.txt \
   --ref ~/anthracis/NC_007530.2.fasta \
@@ -113,21 +112,21 @@ mkdir -p test_all_in_trimmomatic
 ```bash
 cd ~/anthracis/test_single_end/trimmomatic/result
 for ID in $(cat ../../single_list_trim.txt); do
-  cp "$ID/snps.consensus.subs.fa" "{complete path of anthracis}/test_all_in_trimmomatic/$ID.consensus.subs.fa"
+  cp "$ID/snps.consensus.subs.fa" "/path/to/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
 ```
 4.3 Collecting paired-end consensus genomes
 ```bash
 cd ~/anthracis/test_paired_end/trimmomatic/result
 for ID in $(cat ../../paired_list_trim.txt); do
-  cp "$ID/snps.consensus.subs.fa" "{complete path of anthracis}/test_all_in_trimmomatic/$ID.consensus.subs.fa"
+  cp "$ID/snps.consensus.subs.fa" "/path/to/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
 ```
 4.4 Collecting assembled genomes
 ```bash
-cd /home/alice/data/anthracis/test_assembled_genome/update
+cd ~/anthracis/test_assembled_genome/update
 for ID in $(cat ../assembly_list.txt); do
-  cp "$ID/snps.consensus.subs.fa" "/home/alice/data/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
+  cp "$ID/snps.consensus.subs.fa" "/path/to/anthracis/test_all_in_trimmomatic/$ID.consensus.subs.fa"
 done
 ```
 4.5 Padding >Header to the consensus genomes
