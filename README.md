@@ -7,6 +7,8 @@ The complete documents for the pipeline of cgKNV applied on 9 *B. anthracis* gen
 
 <img width="1363" height="334" alt="workflow" src="https://github.com/user-attachments/assets/cd362b7c-a263-4cd0-9785-af35b87f3413" />
 
+[cgKNV_analysis_pipeline](https://github.com/user-attachments/files/27355425/cgKNV_analysis_pipeline.pdf)
+
 # The pipeline of cgKNV contains the following steps:
 ⚙️ Step 1. Data acquisition using ascp or wget;
 
